@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ApperIcon from './ApperIcon';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
 
-const ImageGallery = ({ images, title }) => {
+const MediaGallery = ({ images, title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -38,18 +39,18 @@ const ImageGallery = ({ images, title }) => {
           {/* Navigation Arrows */}
           {images.length > 1 && (
             <>
-              <button
+              <Button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200"
               >
                 <ApperIcon name="ChevronLeft" className="w-6 h-6 text-gray-700" />
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={nextImage}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200"
               >
                 <ApperIcon name="ChevronRight" className="w-6 h-6 text-gray-700" />
-              </button>
+              </Button>
             </>
           )}
 
@@ -59,12 +60,12 @@ const ImageGallery = ({ images, title }) => {
           </div>
 
           {/* Expand Button */}
-          <button
+          <Button
             onClick={() => setIsFullscreen(true)}
             className="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all duration-200"
           >
             <ApperIcon name="Maximize2" className="w-5 h-5 text-gray-700" />
-          </button>
+          </Button>
         </div>
 
         {/* Thumbnail Navigation */}
@@ -72,12 +73,12 @@ const ImageGallery = ({ images, title }) => {
           <div className="p-4 bg-gray-50">
             <div className="flex gap-2 overflow-x-auto scrollbar-hide">
               {images.map((image, index) => (
-                <motion.button
+                <Button
                   key={index}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => goToImage(index)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 p-0 ${ // p-0 to remove button padding for image
                     index === currentIndex
                       ? 'border-primary shadow-md'
                       : 'border-gray-200 hover:border-gray-300'
@@ -88,7 +89,7 @@ const ImageGallery = ({ images, title }) => {
                     alt={`Thumbnail ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
-                </motion.button>
+                </Button>
               ))}
             </div>
           </div>
@@ -119,28 +120,28 @@ const ImageGallery = ({ images, title }) => {
               />
               
               {/* Close Button */}
-              <button
+              <Button
                 onClick={() => setIsFullscreen(false)}
                 className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
               >
                 <ApperIcon name="X" className="w-6 h-6" />
-              </button>
+              </Button>
 
               {/* Navigation in Fullscreen */}
               {images.length > 1 && (
                 <>
-                  <button
+                  <Button
                     onClick={prevImage}
                     className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
                   >
                     <ApperIcon name="ChevronLeft" className="w-8 h-8" />
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     onClick={nextImage}
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
                   >
                     <ApperIcon name="ChevronRight" className="w-8 h-8" />
-                  </button>
+                  </Button>
                 </>
               )}
 
@@ -156,4 +157,4 @@ const ImageGallery = ({ images, title }) => {
   );
 };
 
-export default ImageGallery;
+export default MediaGallery;

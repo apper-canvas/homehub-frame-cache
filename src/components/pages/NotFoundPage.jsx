@@ -1,8 +1,11 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import ApperIcon from '../components/ApperIcon';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
+import StateMessage from '@/components/molecules/StateMessage';
 
-const NotFound = () => {
+const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
@@ -37,23 +40,23 @@ const NotFound = () => {
           </p>
           
           <div className="space-y-4">
-            <motion.button
+            <Button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/')}
               className="w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-200"
             >
               Back to Browse
-            </motion.button>
+            </Button>
             
-            <motion.button
+            <Button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => navigate('/favorites')}
               className="w-full border border-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-50 transition-all duration-200"
             >
               View Favorites
-            </motion.button>
+            </Button>
           </div>
         </motion.div>
       </div>
@@ -61,4 +64,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;

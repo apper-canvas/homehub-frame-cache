@@ -1,20 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Layout from './Layout';
-import Home from './pages/Home';
-import PropertyDetail from './pages/PropertyDetail';
-import Favorites from './pages/Favorites';
-import NotFound from './pages/NotFound';
+import HomePage from '@/components/pages/HomePage';
+import PropertyDetailPage from '@/components/pages/PropertyDetailPage';
+import FavoritesPage from '@/components/pages/FavoritesPage';
+import NotFoundPage from '@/components/pages/NotFoundPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/property/:id" element={<PropertyDetail />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="*" element={<NotFound />} />
+<Route index element={<HomePage />} />
+          <Route path="/property/:id" element={<PropertyDetailPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       

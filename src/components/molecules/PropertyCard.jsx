@@ -1,6 +1,8 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import ApperIcon from './ApperIcon';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
 
 const PropertyCard = ({ property, viewMode = 'grid', onFavoriteToggle }) => {
   const navigate = useNavigate();
@@ -44,7 +46,7 @@ const PropertyCard = ({ property, viewMode = 'grid', onFavoriteToggle }) => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-            <motion.button
+            <Button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleFavoriteClick}
@@ -58,7 +60,7 @@ const PropertyCard = ({ property, viewMode = 'grid', onFavoriteToggle }) => {
                     : 'text-gray-600 hover:text-red-500'
                 }`} 
               />
-            </motion.button>
+            </Button>
           </div>
 
           {/* Content */}
@@ -120,7 +122,7 @@ const PropertyCard = ({ property, viewMode = 'grid', onFavoriteToggle }) => {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        <motion.button
+        <Button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={handleFavoriteClick}
@@ -134,7 +136,7 @@ const PropertyCard = ({ property, viewMode = 'grid', onFavoriteToggle }) => {
                 : 'text-gray-600 hover:text-red-500'
             }`} 
           />
-        </motion.button>
+        </Button>
         <div className="absolute bottom-3 left-3 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
           {property.propertyType}
         </div>

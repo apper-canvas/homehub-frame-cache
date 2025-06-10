@@ -1,6 +1,5 @@
-import Home from '../pages/Home';
-import PropertyDetail from '../pages/PropertyDetail';
-import Favorites from '../pages/Favorites';
+import HomePage from '@/components/pages/HomePage';
+import FavoritesPage from '@/components/pages/FavoritesPage';
 
 export const routes = {
   home: {
@@ -8,14 +7,14 @@ export const routes = {
     label: 'Browse',
     path: '/',
     icon: 'Search',
-    component: Home
+component: HomePage
   },
   favorites: {
     id: 'favorites',
     label: 'Favorites',
     path: '/favorites',
     icon: 'Heart',
-    component: Favorites
+component: FavoritesPage
   }
 };
 

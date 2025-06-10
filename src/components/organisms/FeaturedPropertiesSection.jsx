@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import ApperIcon from './ApperIcon';
-import PropertyCard from './PropertyCard';
-import propertyService from '../services/api/propertyService';
+import ApperIcon from '@/components/ApperIcon';
+import PropertyCard from '@/components/molecules/PropertyCard';
+import Button from '@/components/atoms/Button';
+import propertyService from '@/services/api/propertyService'; // Ensure this path is correct
 
-const MainFeature = () => {
+const FeaturedPropertiesSection = () => {
   const [featuredProperties, setFeaturedProperties] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -101,18 +102,18 @@ const MainFeature = () => {
         transition={{ delay: 0.5 }}
         className="text-center mt-8"
       >
-        <motion.a
-          href="/browse"
+        <Button
+          onClick={() => window.location.href = '/'} // Direct navigation to homepage for simplicity
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-lg font-medium hover:bg-opacity-90 transition-all duration-200"
         >
           <span>View All Properties</span>
           <ApperIcon name="ArrowRight" className="w-5 h-5" />
-        </motion.a>
+        </Button>
       </motion.div>
     </section>
   );
 };
 
-export default MainFeature;
+export default FeaturedPropertiesSection;
