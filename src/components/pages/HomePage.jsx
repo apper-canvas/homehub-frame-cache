@@ -158,8 +158,25 @@ const HomePage = () => {
         )}
       </AnimatePresence>
 
-      {/* Main Content */}
+{/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
+        {/* HomeHub-Pro Branding Header */}
+        <div className="bg-white border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-6">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <ApperIcon name="Home" className="w-6 h-6 text-white" />
+              </div>
+              <h1 className="text-3xl font-heading font-bold text-gray-900">
+                HomeHub-Pro
+              </h1>
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Discover your perfect property with advanced search and filtering
+            </p>
+          </div>
+        </div>
+        
         {/* Search Header */}
         <div className="bg-white border-b border-gray-200 px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
